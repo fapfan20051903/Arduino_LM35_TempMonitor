@@ -11,7 +11,14 @@ void loop() {
     adcValues[i] = analogRead(A0 + i);
     nhietDo[i] = (adcValues[i] * 500.0) / 1023.0;
   }
-  sprintf(chuoi, "%d,%d,%d\n", (int)nhietDo[0], (int)nhietDo[1], (int)nhietDo[2]);
-  Serial.print(chuoi);
+
+  Serial.print("{\"t0\": ");
+  Serial.print((int)nhietDo[0]);
+  Serial.print(", \"t1\": ");
+  Serial.print((int)nhietDo[1]);
+  Serial.print(", \"t2\": ");
+  Serial.print((int)nhietDo[2]);
+  Serial.println("}");
+
   delay(100);
 }
